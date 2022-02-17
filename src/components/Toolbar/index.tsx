@@ -1,16 +1,11 @@
 import React from "react";
-import { Filters } from "../../store/state";
 import FiltersTool from "../FiltersTool";
 
-interface Props {
-  filters: Filters;
-}
-
-const Toolbar: React.FC<Props> = ({ filters }) => {
+const Toolbar: React.FC = () => {
   return (
     <div>
       <div>Toolbar</div>
-      <FiltersTool filters={filters} />
+      <FiltersTool />
     </div>
   );
 };
