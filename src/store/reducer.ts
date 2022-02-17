@@ -7,7 +7,10 @@ const reducer = (state: State = initialState, action: Action) => {
       return { ...state, loading: true };
 
     case "DOWNLOADED_HOTELS":
-      return { ...state, hotels: action.payload, loading: false };
+      return { ...state, hotels: action.payload };
+
+    case "DOWNLOADED_HOTEL_DETAILS":
+      return { ...state, details: action.payload, loading: false };
 
     case "CHANGED_RATING":
       return {

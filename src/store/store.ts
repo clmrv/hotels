@@ -3,6 +3,7 @@ import Hotel from "../model/Hotel";
 import reducer from "./reducer";
 import thunkMiddleware, { ThunkDispatch } from "redux-thunk";
 import { Action } from "./actions";
+import HotelDetails from "../model/HotelDetails";
 
 export interface Filters {
   stars: number;
@@ -12,12 +13,14 @@ export interface Filters {
 
 export interface State {
   hotels: Hotel[];
+  details: HotelDetails[];
   filters: Filters;
   loading: boolean;
 }
 
 export const initialState: State = {
   hotels: [],
+  details: [],
   filters: {
     stars: 0,
     adults: 1,
