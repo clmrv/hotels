@@ -1,6 +1,6 @@
 import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
 import React from "react";
-import { StyledIconWrapper } from "./styled";
+import { StyledIconWrapper, StyledValueWrapper } from "./styled";
 
 interface Props {
   name?: string;
@@ -31,7 +31,7 @@ const Counter: React.FC<Props> = ({
       <StyledIconWrapper>
         <MinusOutlined onClick={decrement} />
       </StyledIconWrapper>
-      <span>{value}</span>
+      <StyledValueWrapper>{value}</StyledValueWrapper>
       <StyledIconWrapper>
         <PlusOutlined onClick={increment} />
       </StyledIconWrapper>

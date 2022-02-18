@@ -11,6 +11,7 @@ export const StyledBanner = styled.img`
 `;
 
 export const StyledContainer = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

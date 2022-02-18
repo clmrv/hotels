@@ -10,3 +10,10 @@ export const StyledButton = styled.span`
 export const StyledIconWrapper = styled(IconWrapper)`
   margin: 0 0.5rem;
 `;
+
+export const StyledValueWrapper = styled.span`
+  display: inline-block;
+  min-width: 1ch;
+  text-align: center;
+  font-weight: 600;
+`;

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useAppSelector, useThunkDispatch } from "../../hooks";
 import { getHotels } from "../../store/thunks";
 import HotelItem from "../HotelItem";
+import { StyledContainer, StyledContainerWrapper } from "./styled";
 
 const HotelList: React.FC = () => {
   const thunkDispatch = useThunkDispatch();
@@ -15,15 +16,17 @@ const HotelList: React.FC = () => {
   }, [thunkDispatch]);
 
   return (
-    <div>
-      {noHotels && <div>No hotels available.</div>}
+    <StyledContainerWrapper>
+      <StyledContainer>
+        {noHotels && <div>No hotels available.</div>}
 
-      {hotels.map((hotel, index) => (
-        <HotelItem key={index} hotel={hotel} />
-      ))}
+        {hotels.map((hotel, index) => (
+          <HotelItem key={index} hotel={hotel} />
+        ))}
 
-      {loading && <div>Loading...</div>}
-    </div>
+        {loading && <div>Loading...</div>}
+      </StyledContainer>
+    </StyledContainerWrapper>
   );
 };
 
