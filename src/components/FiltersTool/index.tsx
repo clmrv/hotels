@@ -2,6 +2,7 @@ import React from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { FilterAction } from "../../store/actions";
 import Counter from "../Counter";
+import StarFilter from "../StarFilter";
 
 const FiltersTool: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -13,7 +14,13 @@ const FiltersTool: React.FC = () => {
 
   return (
     <div>
-      <div>{`stars:${filters.stars}`}</div>
+      <div>
+        <StarFilter
+          starsCount={5}
+          value={filters.rating}
+          onChange={handleChange("CHANGED_RATING")}
+        />
+      </div>
       <div>
         <span>adults</span>
         <Counter

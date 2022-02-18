@@ -2,6 +2,7 @@ import Hotel from "../model/Hotel";
 import HotelDetails from "../model/HotelDetails";
 
 export type FilterAction =
+  | "CHANGED_RATING"
   | "CHANGED_ADULTS"
   | "CHANGED_CHILDREN"
   | "CHANGED_RATING";

@@ -6,7 +6,7 @@ import { Action } from "./actions";
 import HotelDetails from "../model/HotelDetails";
 
 export interface Filters {
-  stars: number;
+  rating: number;
   adults: number;
   children: number;
 }
@@ -22,7 +22,7 @@ export const initialState: State = {
   hotels: [],
   details: [],
   filters: {
-    stars: 0,
+    rating: 0,
     adults: 1,
     children: 0,
   },
