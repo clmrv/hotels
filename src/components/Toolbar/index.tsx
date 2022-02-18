@@ -1,12 +1,16 @@
 import React from "react";
+import { bannerURL } from "../../constants";
 import FiltersTool from "../FiltersTool";
+import { StyledBanner, StyledContainer, StyledFiltersWrapper } from "./styled";
 
 const Toolbar: React.FC = () => {
   return (
-    <div>
-      <div>Toolbar</div>
-      <FiltersTool />
-    </div>
+    <StyledContainer>
+      <StyledBanner src={bannerURL} />
+      <StyledFiltersWrapper>
+        <FiltersTool />
+      </StyledFiltersWrapper>
+    </StyledContainer>
   );
 };
 
