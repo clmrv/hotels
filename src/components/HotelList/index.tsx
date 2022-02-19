@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
-import { useAppSelector, useThunkDispatch } from "../../hooks";
+import { useAppSelector, useAppDispatch } from "../../hooks";
 import { getHotels } from "../../store/thunks";
 import HotelItem from "./HotelItem";
 import { filterHotels } from "./helpers";
 import { StyledContainer, StyledContainerWrapper } from "./styled";
+import Loading from "../Loading";
 
 const HotelList: React.FC = () => {
-  const thunkDispatch = useThunkDispatch();
+  const thunkDispatch = useAppDispatch();
   const hotels = useAppSelector((store) => store.hotels);
   const loading = useAppSelector((store) => store.loading);
   const rating = useAppSelector((store) => store.filters.rating);
@@ -22,7 +23,7 @@ const HotelList: React.FC = () => {
     <StyledContainerWrapper>
       <StyledContainer>
         {loading ? (
-          <div>Loading...</div>
+          <Loading />
         ) : (
           <>
             {noHotels && <div>No hotels available.</div>}

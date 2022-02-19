@@ -16,18 +16,21 @@ const reducer = (state: State = initialState, action: Action) => {
       return {
         ...state,
         filters: { ...state.filters, rating: action.payload },
+        loading: false,
       };
 
     case "CHANGED_ADULTS":
       return {
         ...state,
         filters: { ...state.filters, adults: action.payload },
+        loading: false,
       };
 
     case "CHANGED_CHILDREN":
       return {
         ...state,
         filters: { ...state.filters, children: action.payload },
+        loading: false,
       };
 
     default:

@@ -1,17 +1,14 @@
 import React from "react";
-import { useAppDispatch, useAppSelector } from "../../hooks";
-import { FilterAction } from "../../store/actions";
+import { useAppSelector, useAppDispatch } from "../../hooks";
+import { handleFilterChange } from "../../store/thunks";
 import Counter from "../Counter";
 import StarFilter from "../StarFilter";
 import { StyledContainer } from "./styled";
 
 const FiltersTool: React.FC = () => {
-  const dispatch = useAppDispatch();
   const filters = useAppSelector((store) => store.filters);
-
-  const handleChange = (actionType: FilterAction) => (value: number) => {
-    dispatch({ type: actionType, payload: value });
-  };
+  const dispatch = useAppDispatch();
+  const handleChange = handleFilterChange(dispatch);
 
   return (
     <StyledContainer>

@@ -1,5 +1,5 @@
 import Hotel from "../model/Hotel";
-import { Action } from "./actions";
+import { Action, FilterAction } from "./actions";
 
 const fetchHotels = () =>
   fetch("https://obmng.dbm.guestline.net/api/hotels?collection-id=OBMNG").then(
@@ -28,3 +28,11 @@ export const getHotels = () => async (dispatch: (action: Action) => void) => {
     alert("Server error");
   }
 };
+
+export const handleFilterChange =
+  (dispatch: (action: Action) => void) =>
+  (actionType: FilterAction) =>
+  (value: number) => {
+    dispatch({ type: "STARTED_LOADING" });
+    setTimeout(() => dispatch({ type: actionType, payload: value }), 250);
+  };
