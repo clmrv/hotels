@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { BOXSHADOW, COLORS } from "../../constants";
 
 export const StyledContainerWrapper = styled.div`
   box-sizing: border-box;
@@ -9,8 +8,7 @@ export const StyledContainerWrapper = styled.div`
 `;
 
 export const StyledContainer = styled.div`
-  padding: 1em;
-  background-color: ${COLORS.WHITE};
-  border-radius: 1em;
-  box-shadow: ${BOXSHADOW};
+  display: grid;
+  grid-auto-flow: row;
+  gap: 1em;
 `;

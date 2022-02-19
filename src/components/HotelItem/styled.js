@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { BOXSHADOW, COLORS } from "../../constants";
 import StarFilter from "../StarFilter";
 
 export const StyledContainer = styled.div`
@@ -6,8 +7,14 @@ export const StyledContainer = styled.div`
   grid-template-areas:
     "images"
     "stars"
-    "info";
+    "info"
+    "rooms";
   justify-items: center;
+
+  padding: 1em;
+  background-color: ${COLORS.WHITE};
+  border-radius: 1em;
+  box-shadow: ${BOXSHADOW};
 `;
 
 export const StyledHotelInfo = styled.div`
@@ -28,4 +35,18 @@ export const StyledImages = styled.div`
 
 export const StyledStarFilter = styled(StarFilter)`
   grid-area: stars;
+`;
+
+export const StyledRoomsWrapper = styled.div`
+  grid-area: rooms;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  width: 100%;
+  background-image: linear-gradient(
+    to right,
+    rgba(${COLORS.RGB_GRAY}, 0),
+    rgba(${COLORS.RGB_GRAY}, 0.5),
+    rgba(${COLORS.RGB_GRAY}, 0)
+  );
 `;

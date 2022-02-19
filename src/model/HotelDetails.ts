@@ -4,7 +4,7 @@ interface Occupancy {
   maxOverall: number;
 }
 
-interface Room {
+export interface Room {
   id: string;
   name: string;
   // shortDescription: string;

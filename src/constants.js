@@ -10,6 +10,7 @@ export const COLORS = {
   WHITE: "#FFFFFF",
   CYAN: "#84fab0",
   CYAN2: "#8fd3f4 ",
+  RGB_GRAY: "55, 55, 55",
 };
 
 export const BOXSHADOW = "0.25rem 0.25rem 0.5rem 0 rgba(0,0,0,0.4)";

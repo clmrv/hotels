@@ -21,7 +21,7 @@ const HotelList: React.FC = () => {
         {noHotels && <div>No hotels available.</div>}
 
         {hotels.map((hotel, index) => (
-          <HotelItem key={index} hotel={hotel} />
+          <HotelItem key={index} hotel={hotel} hotelIndex={index} />
         ))}
 
         {loading && <div>Loading...</div>}
