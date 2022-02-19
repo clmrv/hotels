@@ -21,7 +21,6 @@ const FiltersTool: React.FC = () => {
         onChange={handleChange("CHANGED_RATING")}
       />
       <Counter
-        style={{ alignSelf: "flex-end" }}
         name="Adults:"
         value={filters.adults}
         onChange={handleChange("CHANGED_ADULTS")}

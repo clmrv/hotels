@@ -7,7 +7,7 @@ const Star: React.FC<{ filled: boolean; onClick?: () => void }> = ({
 }) => {
   const Component = filled ? StarFilled : StarOutlined;
 
-  return <Component onClick={onClick} />;
+  return <Component onClick={onClick} style={{ fontSize: "1.4em" }} />;
 };
 
 interface Props {

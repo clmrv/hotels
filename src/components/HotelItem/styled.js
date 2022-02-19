@@ -16,7 +16,7 @@ export const StyledContainer = styled.div`
     "rooms";
 
   ${BREAKPOINTS.laptop} {
-    grid-template-columns: calc(16rem + 1em) 1fr 7rem; /* 1em padding */
+    grid-template-columns: calc(16rem + 1em) 1fr 10rem; /* 1em padding */
     grid-template-areas:
       "images info stars"
       "rooms rooms rooms";

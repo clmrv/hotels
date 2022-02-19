@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { BREAKPOINTS } from "../../constants";
 
 export const StyledBanner = styled.img`
   border-image-width: 0;
@@ -18,6 +19,10 @@ export const StyledContainer = styled.div`
 `;
 
 export const StyledFiltersWrapper = styled.div`
-  position: relative;
-  top: -2em;
+  transform: translateY(-50%);
+  margin-bottom: -1.5em;
+
+  ${BREAKPOINTS.laptop} {
+    margin-bottom: 0;
+  }
 `;

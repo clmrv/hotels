@@ -1,6 +1,10 @@
 import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
 import React from "react";
-import { StyledIconWrapper, StyledValueWrapper } from "./styled";
+import {
+  StyledContainer,
+  StyledIconWrapper,
+  StyledValueWrapper,
+} from "./styled";
 
 interface Props {
   name?: string;
@@ -8,7 +12,6 @@ interface Props {
   maxValue?: number;
   value: number;
   onChange: (value: number) => void;
-  style?: React.CSSProperties;
 }
 
 const Counter: React.FC<Props> = ({
@@ -17,7 +20,6 @@ const Counter: React.FC<Props> = ({
   onChange,
   minValue,
   maxValue,
-  style,
 }) => {
   const decrementCondition = minValue === undefined || minValue <= value - 1;
   const incrementCondition = maxValue === undefined || maxValue >= value + 1;
@@ -26,7 +28,7 @@ const Counter: React.FC<Props> = ({
   const decrement = () => decrementCondition && onChange(value - 1);
 
   return (
-    <div style={style}>
+    <StyledContainer>
       <span>{name}</span>
       <StyledIconWrapper>
         <MinusOutlined onClick={decrement} />
@@ -35,7 +37,7 @@ const Counter: React.FC<Props> = ({
       <StyledIconWrapper>
         <PlusOutlined onClick={increment} />
       </StyledIconWrapper>
-    </div>
+    </StyledContainer>
   );
 };
 

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { BOXSHADOW, COLORS } from "../../constants";
+import { BOXSHADOW, BREAKPOINTS, COLORS } from "../../constants";
 
 export const StyledContainer = styled.div`
   display: flex;
@@ -12,4 +12,8 @@ export const StyledContainer = styled.div`
   background-color: ${COLORS.WHITE};
   border-radius: 1em;
   box-shadow: ${BOXSHADOW};
+
+  ${BREAKPOINTS.laptop} {
+    flex-direction: row;
+  }
 `;
