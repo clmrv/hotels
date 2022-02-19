@@ -1,4 +1,5 @@
 import React from "react";
+import { Carousel } from "react-responsive-carousel";
 import { useAppSelector } from "../../../hooks";
 import Hotel from "../../../model/Hotel";
 import { filterRooms } from "../helpers";
@@ -12,6 +13,7 @@ import {
   StyledStarFilter,
   StyledAddresses,
   StyledNoRoomWrapper,
+  StyledCarouselImage,
 } from "./styled";
 
 interface Props {
@@ -35,7 +37,13 @@ const HotelItem: React.FC<Props> = ({ hotel, hotelIndex }) => {
   const noRooms = filteredRooms && filteredRooms.length === 0;
   return (
     <StyledContainer>
-      <StyledImages>img</StyledImages>
+      <StyledImages>
+        <Carousel dynamicHeight={true} showStatus={false} showThumbs={false}>
+          {hotel.images.map((image) => (
+            <StyledCarouselImage src={image.url} alt={image.alt} />
+          ))}
+        </Carousel>
+      </StyledImages>
       <StyledHotelInfo>
         <StyledName>{hotel.name}</StyledName>
         <StyledAddresses>

@@ -7,7 +7,6 @@ export const StyledBanner = styled.img`
   display: block;
   height: 20vh;
   width: 100%;
-  background-color: red;
   object-fit: cover;
 `;
 

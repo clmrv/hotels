@@ -53,8 +53,16 @@ export const StyledAddresses = styled.div`
 `;
 
 export const StyledImages = styled.div`
-  background-color: red;
+  overflow: hidden;
+  border-radius: 1em;
   grid-area: images;
+
+  margin-right: 0;
+  margin-bottom: 1em;
+
+  ${BREAKPOINTS.laptop} {
+    margin-right: 1em;
+  }
 `;
 
 export const StyledStarFilter = styled(StarFilter)`
@@ -80,4 +88,8 @@ export const StyledRoomsWrapper = styled.div`
 
 export const StyledNoRoomWrapper = styled.div`
   padding: 1em;
+`;
+
+export const StyledCarouselImage = styled.img`
+  max-width: 100%;
 `;
