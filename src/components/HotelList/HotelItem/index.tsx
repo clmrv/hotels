@@ -11,6 +11,7 @@ import {
   StyledRoomsWrapper,
   StyledStarFilter,
   StyledAddresses,
+  StyledNoRoomWrapper,
 } from "./styled";
 
 interface Props {
@@ -50,7 +51,9 @@ const HotelItem: React.FC<Props> = ({ hotel, hotelIndex }) => {
           ))}
       </StyledRoomsWrapper>
 
-      {noRooms && <div>No rooms available.</div>}
+      {noRooms && (
+        <StyledNoRoomWrapper>No rooms available.</StyledNoRoomWrapper>
+      )}
     </StyledContainer>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import { StarFilled, StarOutlined } from "@ant-design/icons";
+import { COLORS } from "../constants";
 
 const Star: React.FC<{ filled: boolean; onClick?: () => void }> = ({
   filled,
@@ -7,7 +8,12 @@ const Star: React.FC<{ filled: boolean; onClick?: () => void }> = ({
 }) => {
   const Component = filled ? StarFilled : StarOutlined;
 
-  return <Component onClick={onClick} style={{ fontSize: "1.4em" }} />;
+  return (
+    <Component
+      onClick={onClick}
+      style={{ fontSize: "1.4em", color: COLORS.YELLOW }}
+    />
+  );
 };
 
 interface Props {

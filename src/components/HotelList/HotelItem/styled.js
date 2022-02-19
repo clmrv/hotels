@@ -77,3 +77,7 @@ export const StyledRoomsWrapper = styled.div`
     rgba(${COLORS.RGB_GRAY}, 0)
   );
 `;
+
+export const StyledNoRoomWrapper = styled.div`
+  padding: 1em;
+`;
