@@ -9,6 +9,7 @@ import {
   StyledName,
   StyledRoomsWrapper,
   StyledStarFilter,
+  StyledAddresses,
 } from "./styled";
 
 interface Props {
@@ -26,8 +27,10 @@ const HotelItem: React.FC<Props> = ({ hotel, hotelIndex }) => {
       <StyledImages>img</StyledImages>
       <StyledHotelInfo>
         <StyledName>{hotel.name}</StyledName>
-        <div>{hotel.address1}</div>
-        <div>{hotel.address2}</div>
+        <StyledAddresses>
+          <div>{hotel.address1}</div>
+          <div>{hotel.address2}</div>
+        </StyledAddresses>
       </StyledHotelInfo>
       <StyledStarFilter value={parseInt(hotel.starRating)} starsCount={5} />
       <StyledRoomsWrapper>
