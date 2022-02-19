@@ -1,5 +1,5 @@
 import React from "react";
-import { Room } from "../../model/HotelDetails";
+import { Room } from "../../../../model/HotelDetails";
 import {
   StyledRoomName,
   StyledContainer,

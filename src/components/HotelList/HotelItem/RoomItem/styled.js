@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { BREAKPOINTS, COLORS } from "../../constants";
+import { BREAKPOINTS, COLORS } from "../../../../constants";
 
 export const StyledContainer = styled.div`
   box-sizing: border-box;

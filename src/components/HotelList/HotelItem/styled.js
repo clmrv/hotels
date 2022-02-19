@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { BOXSHADOW, BREAKPOINTS, COLORS } from "../../constants";
-import StarFilter from "../StarFilter";
+import { BOXSHADOW, BREAKPOINTS, COLORS } from "../../../constants";
+import StarFilter from "../../StarFilter";
 
 export const StyledContainer = styled.div`
   display: grid;

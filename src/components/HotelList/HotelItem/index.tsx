@@ -1,7 +1,8 @@
 import React from "react";
-import { useAppSelector } from "../../hooks";
-import Hotel from "../../model/Hotel";
-import RoomItem from "../RoomItem";
+import { useAppSelector } from "../../../hooks";
+import Hotel from "../../../model/Hotel";
+import { filterRooms } from "../helpers";
+import RoomItem from "./RoomItem";
 import {
   StyledContainer,
   StyledHotelInfo,
@@ -19,9 +20,18 @@ interface Props {
 
 const HotelItem: React.FC<Props> = ({ hotel, hotelIndex }) => {
   const hotelDetails = useAppSelector((store) => store.details[hotelIndex]);
+  const filters = useAppSelector((store) => store.filters);
   const loading = useAppSelector((store) => store.loading);
 
-  const noRooms = !loading && hotelDetails.rooms.length === 0;
+  const filteredRooms =
+    !loading &&
+    filterRooms({
+      rooms: hotelDetails.rooms,
+      adults: filters.adults,
+      children: filters.children,
+    });
+
+  const noRooms = filteredRooms && filteredRooms.length === 0;
   return (
     <StyledContainer>
       <StyledImages>img</StyledImages>
@@ -34,8 +44,8 @@ const HotelItem: React.FC<Props> = ({ hotel, hotelIndex }) => {
       </StyledHotelInfo>
       <StyledStarFilter value={parseInt(hotel.starRating)} starsCount={5} />
       <StyledRoomsWrapper>
-        {!loading &&
-          hotelDetails.rooms.map((room, index) => (
+        {filteredRooms &&
+          filteredRooms.map((room, index) => (
             <RoomItem key={room.id} room={room} />
           ))}
       </StyledRoomsWrapper>
