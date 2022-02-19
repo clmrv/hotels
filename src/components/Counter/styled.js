@@ -8,7 +8,7 @@ export const StyledButton = styled.span`
 `;
 
 export const StyledIconWrapper = styled(IconWrapper)`
-  margin: 0 0.5rem;
+  margin: 0 0.5em;
 `;
 
 export const StyledValueWrapper = styled.span`

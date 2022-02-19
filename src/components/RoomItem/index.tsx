@@ -5,6 +5,7 @@ import {
   StyledContainer,
   StyledRoomDesc,
   StyledOccupancy,
+  StyledRoomInfo,
 } from "./styled";
 
 interface Props {
@@ -14,11 +15,13 @@ interface Props {
 const RoomItem: React.FC<Props> = ({ room }) => {
   return (
     <StyledContainer>
-      <StyledRoomName>{room.name}</StyledRoomName>
-      <StyledOccupancy>
-        <div>{`Adults: ${room.occupancy.maxAdults}`}</div>
-        <div>{`Children: ${room.occupancy.maxChildren}`}</div>
-      </StyledOccupancy>
+      <StyledRoomInfo>
+        <StyledRoomName>{room.name}</StyledRoomName>
+        <StyledOccupancy>
+          <div>{`Adults: ${room.occupancy.maxAdults}`}</div>
+          <div>{`Children: ${room.occupancy.maxChildren}`}</div>
+        </StyledOccupancy>
+      </StyledRoomInfo>
       <StyledRoomDesc>{room.longDescription}</StyledRoomDesc>
     </StyledContainer>
   );

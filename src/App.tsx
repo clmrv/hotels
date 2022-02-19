@@ -2,7 +2,7 @@ import React from "react";
 import HotelList from "./components/HotelList";
 import Toolbar from "./components/Toolbar";
 import styled from "@emotion/styled";
-import { COLORS } from "./constants";
+import { BREAKPOINTS, COLORS } from "./constants";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -14,6 +14,14 @@ const StyledContainer = styled.div`
     ${COLORS.CYAN} 0%,
     ${COLORS.CYAN2} 100%
   );
+
+  ${BREAKPOINTS.tablet} {
+    font-size: 1.1rem;
+  }
+
+  ${BREAKPOINTS.laptop} {
+    font-size: 1.3rem;
+  }
 `;
 
 function App() {
