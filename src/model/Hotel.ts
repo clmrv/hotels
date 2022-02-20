@@ -1,4 +1,5 @@
 import { Image, Facility } from "./common";
+import HotelDetails from "./HotelDetails";
 
 // interface Position {
 //   latitude: string;
@@ -26,4 +27,5 @@ export default interface Hotel {
   // checkOutHours: string;
   // checkOutMinutes: string;
   // position?: Position;
+  details?: HotelDetails;
 }

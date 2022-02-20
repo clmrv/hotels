@@ -20,10 +20,13 @@ export const getHotels = () => async (dispatch: (action: Action) => void) => {
     dispatch({ type: "STARTED_LOADING" });
 
     const data: Hotel[] = await fetchHotels();
-    dispatch({ type: "DOWNLOADED_HOTELS", payload: data });
-
     const details = await fetchDetails(data);
-    dispatch({ type: "DOWNLOADED_HOTEL_DETAILS", payload: details });
+
+    for (let i = 0; i < data.length; i++) {
+      data[i].details = details[i];
+    }
+
+    dispatch({ type: "DOWNLOADED_HOTELS", payload: data });
   } catch {
     alert("Server error");
   }

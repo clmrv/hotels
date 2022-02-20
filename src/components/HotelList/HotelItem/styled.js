@@ -86,10 +86,6 @@ export const StyledRoomsWrapper = styled.div`
   );
 `;
 
-export const StyledNoRoomWrapper = styled.div`
-  padding: 1em;
-`;
-
 export const StyledCarouselImage = styled.img`
   max-width: 100%;
 `;

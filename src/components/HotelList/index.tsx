@@ -7,22 +7,21 @@ import { StyledContainer, StyledContainerWrapper } from "./styled";
 import Loading from "../Loading";
 
 const HotelList: React.FC = () => {
-  const thunkDispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
   const hotels = useAppSelector((store) => store.hotels);
-  const hotelsDetails = useAppSelector((store) => store.details);
+  // const hotelsDetails = useAppSelector((store) => store.details);
   const loading = useAppSelector((store) => store.loading);
   const filters = useAppSelector((store) => store.filters);
 
   const filteredHotels = filterHotels({
     hotels,
-    details: hotelsDetails,
     filters,
   });
   const noHotels = !loading && filteredHotels.length === 0;
 
   useEffect(() => {
-    thunkDispatch(getHotels());
-  }, [thunkDispatch]);
+    dispatch(getHotels());
+  }, [dispatch]);
 
   return (
     <StyledContainerWrapper>
@@ -33,7 +32,7 @@ const HotelList: React.FC = () => {
           <>
             {noHotels && <div>No hotels available.</div>}
             {filteredHotels.map((hotel, index) => (
-              <HotelItem key={index} hotel={hotel} hotelIndex={index} />
+              <HotelItem key={index} hotel={hotel} />
             ))}
           </>
         )}
