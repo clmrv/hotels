@@ -39,8 +39,8 @@ const HotelItem: React.FC<Props> = ({ hotel, hotelIndex }) => {
     <StyledContainer>
       <StyledImages>
         <Carousel dynamicHeight={true} showStatus={false} showThumbs={false}>
-          {hotel.images.map((image) => (
-            <StyledCarouselImage src={image.url} alt={image.alt} />
+          {hotel.images.map((image, index) => (
+            <StyledCarouselImage key={index} src={image.url} alt={image.alt} />
           ))}
         </Carousel>
       </StyledImages>

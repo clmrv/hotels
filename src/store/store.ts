@@ -22,7 +22,7 @@ export const initialState: State = {
   hotels: [],
   details: [],
   filters: {
-    rating: 0,
+    rating: 1,
     adults: 1,
     children: 0,
   },
