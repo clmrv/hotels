@@ -9,10 +9,15 @@ import Loading from "../Loading";
 const HotelList: React.FC = () => {
   const thunkDispatch = useAppDispatch();
   const hotels = useAppSelector((store) => store.hotels);
+  const hotelsDetails = useAppSelector((store) => store.details);
   const loading = useAppSelector((store) => store.loading);
-  const rating = useAppSelector((store) => store.filters.rating);
+  const filters = useAppSelector((store) => store.filters);
 
-  const filteredHotels = filterHotels(hotels, rating);
+  const filteredHotels = filterHotels({
+    hotels,
+    details: hotelsDetails,
+    filters,
+  });
   const noHotels = !loading && filteredHotels.length === 0;
 
   useEffect(() => {
