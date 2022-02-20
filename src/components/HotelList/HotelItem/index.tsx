@@ -38,8 +38,7 @@ const HotelItem: React.FC<Props> = ({ hotel }) => {
       </StyledHotelInfo>
       <StyledStarFilter value={parseInt(hotel.starRating)} starsCount={5} />
       <StyledRoomsWrapper>
-        {rooms &&
-          rooms.map((room, index) => <RoomItem key={room.id} room={room} />)}
+        {rooms && rooms.map((room) => <RoomItem key={room.id} room={room} />)}
       </StyledRoomsWrapper>
     </StyledContainer>
   );
