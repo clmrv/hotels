@@ -1,8 +1,8 @@
 # Hotels
 
-## Build
+## Build and run
 
-`npm install`
-`npm run-script build`
-`npm install -g serve`
-`serve -s build`
+1. `npm install`
+2. `npm run-script build`
+3. `npm install -g serve`
+4. `serve -s build`
