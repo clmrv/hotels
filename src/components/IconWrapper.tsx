@@ -6,7 +6,7 @@ interface Props {
 }
 
 const IconWrapper: React.FC<Props> = ({ children, ...props }) => (
-  <span {...props}>{children}</span>
+  <button {...props}>{children}</button>
 );
 
 export default IconWrapper;

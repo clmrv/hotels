@@ -29,13 +29,13 @@ const Counter: React.FC<Props> = ({
 
   return (
     <StyledContainer>
-      <span>{name}</span>
-      <StyledIconWrapper>
-        <MinusOutlined onClick={decrement} />
+      <label>{name}</label>
+      <StyledIconWrapper onClick={decrement} aria-label={`${name}-minus`}>
+        <MinusOutlined />
       </StyledIconWrapper>
       <StyledValueWrapper>{value}</StyledValueWrapper>
-      <StyledIconWrapper>
-        <PlusOutlined onClick={increment} />
+      <StyledIconWrapper onClick={increment} aria-label={`${name}-plus`}>
+        <PlusOutlined />
       </StyledIconWrapper>
     </StyledContainer>
   );
