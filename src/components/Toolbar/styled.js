@@ -10,7 +10,7 @@ export const StyledBanner = styled.img`
   object-fit: cover;
 `;
 
-export const StyledContainer = styled.div`
+export const StyledContainer = styled.header`
   width: 100%;
   display: flex;
   flex-direction: column;

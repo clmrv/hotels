@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { BOXSHADOW, BREAKPOINTS, COLORS } from "../../../constants";
 import StarFilter from "../../StarFilter";
 
-export const StyledContainer = styled.div`
+export const StyledContainer = styled.section`
   display: grid;
   padding: 1em;
   background-color: ${COLORS.WHITE};

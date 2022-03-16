@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { BREAKPOINTS } from "../../constants";
 
-export const StyledContainerWrapper = styled.div`
+export const StyledContainerWrapper = styled.main`
   box-sizing: border-box;
   width: 100%;
   max-width: 1200px;
