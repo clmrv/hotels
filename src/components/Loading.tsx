@@ -8,7 +8,7 @@ const StyledLoading = styled(ReactLoading)`
 `;
 
 const Loading: React.FC = () => {
-  return <StyledLoading type="spin" />;
+  return <StyledLoading type="spin" data-testid="loading" />;
 };
 
 export default Loading;
