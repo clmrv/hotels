@@ -1,4 +1,8 @@
 import React from "react";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+import "./index.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import HotelList from "./components/HotelList";
 import Toolbar from "./components/Toolbar";
 import styled from "@emotion/styled";
@@ -26,10 +30,12 @@ const StyledContainer = styled.div`
 
 function App() {
   return (
-    <StyledContainer>
-      <Toolbar />
-      <HotelList />
-    </StyledContainer>
+    <Provider store={store}>
+      <StyledContainer>
+        <Toolbar />
+        <HotelList />
+      </StyledContainer>
+    </Provider>
   );
 }
 

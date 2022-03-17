@@ -2,14 +2,17 @@ import styled from "@emotion/styled";
 import { BREAKPOINTS } from "../../constants";
 import IconWrapper from "../IconWrapper";
 
-export const StyledButton = styled.span`
-  cursor: pointer;
-  border: 1px solid black;
-  border-radius: 50%;
-`;
 
 export const StyledIconWrapper = styled(IconWrapper)`
   margin: 0 0.5em;
+  padding: 0;
+  border: none;
+  background: none;
+
+  cursor: pointer;
+  font: inherit;
+  outline: inherit;
+  color: inherit;
 `;
 
 export const StyledValueWrapper = styled.span`

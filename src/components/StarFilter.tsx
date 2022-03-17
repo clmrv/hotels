@@ -2,16 +2,18 @@ import React from "react";
 import { StarFilled, StarOutlined } from "@ant-design/icons";
 import { COLORS } from "../constants";
 
-const Star: React.FC<{ filled: boolean; onClick?: () => void }> = ({
-  filled,
-  onClick,
-}) => {
+const Star: React.FC<{
+  filled: boolean;
+  onClick?: () => void;
+  dataTestId?: string;
+}> = ({ filled, onClick, dataTestId }) => {
   const Component = filled ? StarFilled : StarOutlined;
 
   return (
     <Component
       onClick={onClick}
       style={{ fontSize: "1.4em", color: COLORS.YELLOW }}
+      data-testid={dataTestId}
     />
   );
 };
@@ -37,7 +39,12 @@ const StarFilter: React.FC<Props> = ({
   return (
     <div className={className}>
       {starsIdArray.map((id) => (
-        <Star key={id} filled={id + 1 <= value} onClick={handleClick(id)} />
+        <Star
+          key={id}
+          filled={id + 1 <= value}
+          onClick={handleClick(id)}
+          dataTestId={`star-${onChange ? "button-" : ""}${id + 1}`}
+        />
       ))}
     </div>
   );
