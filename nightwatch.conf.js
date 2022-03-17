@@ -13,22 +13,6 @@
 //
 
 module.exports = {
-  before: () => {
-    const fetchMock = require("jest-fetch-mock");
-    fetchMock.enableMocks();
-
-    const { hotelList, hotelDetails } = require("./src/mockApiData");
-
-    fetch.resetMocks();
-    fetch.mockResponses(
-      [JSON.stringify(hotelList), { status: 200 }],
-      ...hotelDetails.map((details) => [
-        JSON.stringify(details),
-        { status: 200 },
-      ])
-    );
-  },
-
   // An array of folders (excluding subfolders) where your tests are located;
   // if this is not specified, the test source must be passed as the second argument to the test runner.
   src_folders: ["src/e2e-tests/"],
