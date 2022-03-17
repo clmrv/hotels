@@ -24,6 +24,7 @@ it("one big test", async () => {
   expect(screen.getByText(/deluxe twin/i)).toBeInTheDocument();
   expect(screen.getByText(/obm hotel 2/i)).toBeInTheDocument();
 
+  
   // filters by rating
   userEvent.click(screen.getByTestId("star-button-5"));
   await waitForLoading();
@@ -36,6 +37,7 @@ it("one big test", async () => {
   expect(screen.getByText(/obm hotel 1/i)).toBeInTheDocument();
   expect(screen.getByText(/obm hotel 2/i)).toBeInTheDocument();
 
+  
   // filters by adults capacity
   expect(screen.getAllByText(/adults: 1/i).length).toBeGreaterThan(0);
   expect(screen.getAllByText(/adults: 2/i).length).toBeGreaterThan(0);
@@ -50,4 +52,16 @@ it("one big test", async () => {
 
   expect(screen.getAllByText(/adults: 1/i).length).toBeGreaterThan(0);
   expect(screen.getAllByText(/adults: 2/i).length).toBeGreaterThan(0);
+
+  
+  // filters by children capacity
+  expect(screen.getAllByText(/children: 0/i).length).toBeGreaterThan(0);
+  expect(screen.getAllByText(/children: 1/i).length).toBeGreaterThan(0);
+  
+  userEvent.click(screen.getByRole("button", {name: "Children:-plus"}))
+  await waitForLoading();
+
+  expect(screen.queryByText(/children: 0/i)).not.toBeInTheDocument();
+  expect(screen.getAllByText(/children: 1/i).length).toBeGreaterThan(0);
+  
 });
