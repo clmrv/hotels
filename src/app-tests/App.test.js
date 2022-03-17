@@ -10,58 +10,71 @@ import { hotelDetails, hotelList } from "./apiData";
 const waitForLoading = () =>
   waitForElementToBeRemoved(() => screen.getByTestId("loading"));
 
-it("one big test", async () => {
+const assertText = (text) =>
+  expect(screen.getAllByText(text).length).toBeGreaterThan(0);
+
+const assertTextMissing = (text) =>
+  expect(screen.queryByText(text)).not.toBeInTheDocument();
+
+beforeEach(async () => {
+  fetch.resetMocks();
   fetch.mockResponses(
     [JSON.stringify(hotelList), { status: 200 }],
     ...hotelDetails.map((details) => [JSON.stringify(details), { status: 200 }])
   );
 
   render(<App />);
-
-  // displays hotels with rooms
   await waitForLoading();
-  expect(screen.getByText(/obm hotel 1/i)).toBeInTheDocument();
-  expect(screen.getByText(/deluxe twin/i)).toBeInTheDocument();
-  expect(screen.getByText(/obm hotel 2/i)).toBeInTheDocument();
+});
 
-  
-  // filters by rating
+it("displays hotels with rooms", () => {
+  assertText(/obm hotel 1/i);
+  assertText(/deluxe twin/i);
+  assertText(/obm hotel 2/i);
+});
+
+it("filters by the rating", async () => {
   userEvent.click(screen.getByTestId("star-button-5"));
   await waitForLoading();
 
-  expect(screen.queryByText(/obm hotel 1/i)).not.toBeInTheDocument();
-  expect(screen.getByText(/obm hotel 2/i)).toBeInTheDocument();
+  assertTextMissing(/obm hotel 1/i);
+  assertText(/obm hotel 2/i);
 
   userEvent.click(screen.getByTestId("star-button-1"));
   await waitForLoading();
-  expect(screen.getByText(/obm hotel 1/i)).toBeInTheDocument();
-  expect(screen.getByText(/obm hotel 2/i)).toBeInTheDocument();
+  assertText(/obm hotel 1/i);
+  assertText(/obm hotel 2/i);
+});
 
-  
-  // filters by adults capacity
-  expect(screen.getAllByText(/adults: 1/i).length).toBeGreaterThan(0);
-  expect(screen.getAllByText(/adults: 2/i).length).toBeGreaterThan(0);
+it("filters by adult capacity", async () => {
+  assertText(/adults: 1/i);
+  assertText(/adults: 2/i);
   userEvent.click(screen.getByRole("button", { name: "Adults:-plus" }));
   await waitForLoading();
 
-  expect(screen.queryByText(/adults: 1/i)).not.toBeInTheDocument();
-  expect(screen.getAllByText(/adults: 2/i).length).toBeGreaterThan(0);
+  assertTextMissing(/adults: 1/i);
+  assertText(/adults: 2/i);
 
   userEvent.click(screen.getByRole("button", { name: "Adults:-minus" }));
   await waitForLoading();
 
-  expect(screen.getAllByText(/adults: 1/i).length).toBeGreaterThan(0);
-  expect(screen.getAllByText(/adults: 2/i).length).toBeGreaterThan(0);
+  assertText(/adults: 2/i);
+  assertText(/adults: 1/i);
+});
 
-  
-  // filters by children capacity
-  expect(screen.getAllByText(/children: 0/i).length).toBeGreaterThan(0);
-  expect(screen.getAllByText(/children: 1/i).length).toBeGreaterThan(0);
-  
-  userEvent.click(screen.getByRole("button", {name: "Children:-plus"}))
+it("filters by children capacity", async () => {
+  assertText(/children: 0/i);
+  assertText(/children: 1/i);
+
+  userEvent.click(screen.getByRole("button", { name: "Children:-plus" }));
   await waitForLoading();
 
   expect(screen.queryByText(/children: 0/i)).not.toBeInTheDocument();
-  expect(screen.getAllByText(/children: 1/i).length).toBeGreaterThan(0);
-  
+  assertText(/children: 1/i);
+
+  userEvent.click(screen.getByRole("button", { name: "Children:-minus" }));
+  await waitForLoading();
+
+  assertText(/children: 0/i);
+  assertText(/children: 1/i);
 });
