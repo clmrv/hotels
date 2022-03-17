@@ -42,6 +42,7 @@ it("filters by the rating", async () => {
 
   userEvent.click(screen.getByTestId("star-button-1"));
   await waitForLoading();
+
   assertText(/obm hotel 1/i);
   assertText(/obm hotel 2/i);
 });
@@ -49,6 +50,7 @@ it("filters by the rating", async () => {
 it("filters by adult capacity", async () => {
   assertText(/adults: 1/i);
   assertText(/adults: 2/i);
+  
   userEvent.click(screen.getByRole("button", { name: "Adults:-plus" }));
   await waitForLoading();
 
@@ -69,7 +71,7 @@ it("filters by children capacity", async () => {
   userEvent.click(screen.getByRole("button", { name: "Children:-plus" }));
   await waitForLoading();
 
-  expect(screen.queryByText(/children: 0/i)).not.toBeInTheDocument();
+  assertTextMissing(/children: 0/i);
   assertText(/children: 1/i);
 
   userEvent.click(screen.getByRole("button", { name: "Children:-minus" }));
