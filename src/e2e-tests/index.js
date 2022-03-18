@@ -18,4 +18,38 @@ describe("Filtering e2e test", () => {
     browser.expect.element("main").text.to.match(/obm hotel 1/i);
     browser.expect.element("main").text.to.match(/obm hotel 2/i);
   });
+
+  it("filters by adult capacity", () => {
+    browser.expect.element("main").text.to.match(/adults: 1/i);
+    browser.expect.element("main").text.to.match(/adults: 2/i);
+
+    browser.click('button[aria-label="Adults:-plus"]');
+    browser.waitForElementNotPresent("[data-testid=loading]");
+
+    browser.expect.element("main").text.not.to.match(/adults: 1/i);
+    browser.expect.element("main").text.to.match(/adults: 2/i);
+
+    browser.click('button[aria-label="Adults:-minus"]');
+    browser.waitForElementNotPresent("[data-testid=loading]");
+
+    browser.expect.element("main").text.to.match(/adults: 1/i);
+    browser.expect.element("main").text.to.match(/adults: 2/i);
+  });
+
+  it("filters by children capacity", () => {
+    browser.expect.element("main").text.to.match(/children: 0/i);
+    browser.expect.element("main").text.to.match(/children: 1/i);
+
+    browser.click('button[aria-label="Children:-plus"]');
+    browser.waitForElementNotPresent("[data-testid=loading]");
+
+    browser.expect.element("main").text.not.to.match(/children: 0/i);
+    browser.expect.element("main").text.to.match(/children: 1/i);
+
+    browser.click('button[aria-label="Children:-minus"]');
+    browser.waitForElementNotPresent("[data-testid=loading]");
+
+    browser.expect.element("main").text.to.match(/children: 0/i);
+    browser.expect.element("main").text.to.match(/children: 1/i);
+  });
 });
