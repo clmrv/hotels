@@ -21,7 +21,7 @@ const HotelItem: React.FC<Props> = ({ hotel }) => {
   const rooms = hotel.details?.rooms;
 
   return (
-    <StyledContainer>
+    <StyledContainer data-testid="hotel">
       <StyledImages>
         <Carousel dynamicHeight={true} showStatus={false} showThumbs={false}>
           {hotel.images.map((image, index) => (
