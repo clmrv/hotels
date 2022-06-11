@@ -32,18 +32,24 @@ const StarFilter: React.FC<Props> = ({
   className,
 }) => {
   const starsIdArray = Array.from(Array(starsCount).keys());
+  const readOnly = onChange === undefined;
 
   const handleClick = (id: number) =>
     onChange ? () => onChange(id + 1) : undefined;
 
   return (
-    <div className={className}>
+    <div
+      className={className}
+      aria-label={
+        readOnly ? `${value} out of ${starsCount} stars` : "rating filter"
+      }
+    >
       {starsIdArray.map((id) => (
         <Star
           key={id}
           filled={id + 1 <= value}
           onClick={handleClick(id)}
-          dataTestId={`star-${onChange ? "button-" : ""}${id + 1}`}
+          dataTestId={`star-${readOnly ? "" : "button-"}${id + 1}`}
         />
       ))}
     </div>

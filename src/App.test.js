@@ -4,8 +4,8 @@ import {
   waitForElementToBeRemoved,
 } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import App from "../App";
-import { hotelDetails, hotelList } from "./apiData";
+import App from "./App";
+import { hotelDetails, hotelList } from "./mockApiData";
 
 const waitForLoading = () =>
   waitForElementToBeRemoved(() => screen.getByTestId("loading"));

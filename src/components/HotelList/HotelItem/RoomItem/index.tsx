@@ -14,7 +14,7 @@ interface Props {
 
 const RoomItem: React.FC<Props> = ({ room }) => {
   return (
-    <StyledContainer>
+    <StyledContainer data-testid="room">
       <StyledRoomInfo>
         <StyledRoomName>{room.name}</StyledRoomName>
         <StyledOccupancy>
